@@ -3,6 +3,10 @@
   "version": "1.0.0",
   "description": "Fast file system operations",
   "main": "nativefs.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/PatrickE94/nativefs.git"
+  },
   "scripts": {
     "test": "mocha",
     "install": "node-gyp rebuild"
@@ -16,6 +20,10 @@
     "move",
     "progress"
   ],
+  "bugs": {
+    "url": "https://github.com/PatrickE94/nativefs/issues"
+  },
+  "homepage": "https://github.com/PatrickE94/nativefs#readme",
   "author": "Patrick Engström",
   "license": "MIT",
   "gypfile": true
