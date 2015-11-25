@@ -119,31 +119,8 @@ errOut:
   return;
 }
 
-void Remove(const FunctionCallbackInfo<Value>& args) {
-  Isolate* isolate = args.GetIsolate();
-
-  if (args.Length() < 2) THROW_ERROR("Wrong number of arguments");
-  if (!args[0]->IsString()) THROW_ERROR("First argument is not a string");
-
-  std::string path = get(args[0]);
-  Local<Function> rescb = Local<Function>::Cast(args[1]);
-
-  if (remove(path.c_str()) < 0) {
-    Local<Value> argv[2] = {
-      String::NewFromUtf8(isolate, strerror(errno)),
-      False(isolate)
-    };
-    rescb->Call(Null(isolate), 2, argv);
-    return;
-  }
-
-  Local<Value> argv[2] = { Null(isolate), True(isolate) };
-  rescb->Call(Null(isolate), 2, argv);
-}
-
 void init(Local<Object> exports) {
   NODE_SET_METHOD(exports, "copy", Copy);
-  NODE_SET_METHOD(exports, "remove", Remove);
 }
 
 NODE_MODULE(native_fs, init)

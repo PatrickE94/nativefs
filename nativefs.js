@@ -8,10 +8,6 @@
     return native_fs.copy.apply(null, arguments);
   };
 
-  module.exports.remove = function() {
-    return native_fs.remove.apply(null, arguments);
-  };
-
   return;
 
 })();
