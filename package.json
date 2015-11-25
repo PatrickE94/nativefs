@@ -26,5 +26,9 @@
   "homepage": "https://github.com/PatrickE94/nativefs#readme",
   "author": "Patrick Engström",
   "license": "MIT",
-  "gypfile": true
+  "gypfile": true,
+  "devDependencies": {
+    "chai": "^3.4.1",
+    "mocha": "^2.3.4"
+  }
 }
