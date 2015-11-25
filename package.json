@@ -1,0 +1,22 @@
+{
+  "name": "nativefs",
+  "version": "1.0.0",
+  "description": "Fast file system operations",
+  "main": "nativefs.js",
+  "scripts": {
+    "test": "mocha",
+    "install": "node-gyp rebuild"
+  },
+  "keywords": [
+    "performance",
+    "copy",
+    "fast",
+    "filesystem",
+    "fs",
+    "move",
+    "progress"
+  ],
+  "author": "Patrick Engström",
+  "license": "MIT",
+  "gypfile": true
+}
