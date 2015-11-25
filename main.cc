@@ -71,11 +71,14 @@ void Copy(const FunctionCallbackInfo<Value>& args) {
 
   in = open(pathone.c_str(), O_RDONLY);
   if (in < 0) goto errOut;
-  out = open(pathtwo.c_str(), O_WRONLY | O_CREAT | O_TRUNC);
+
+  // Get the input file information
+  if (fstat(in, &st) != 0) goto errOut;
+
+  // Open target
+  out = open(pathtwo.c_str(), O_WRONLY | O_CREAT | O_TRUNC, st.st_mode);
   if (out < 0) goto errOut;
 
-  // Get the input file size
-  if (fstat(in, &st) != 0) goto errOut;
   bytesPerUpdate = st.st_size / 100;
   sinceLastUpdate = 0;
 
